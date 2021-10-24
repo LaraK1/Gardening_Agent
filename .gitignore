@@ -35,3 +35,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Sprites
+2DBasicsForML/Assets/Sprites/32x32_Agent1.png
+2DBasicsForML/Assets/Sprites/My_TileAtlas_32x32.png
