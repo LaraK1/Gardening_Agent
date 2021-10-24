@@ -1,4 +1,4 @@
-# ML_Agents_Gardening
+# Gardening Agent
  My tests with Unity's ML agents in a 2D environment.
 
 # Current Status:
