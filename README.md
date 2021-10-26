@@ -2,19 +2,34 @@
  My tests with Unity's ML agents in a 2D environment.
 
 ## Current Status:
-Overfitted agent on the current problem.  
+Acceptable agent that can maintain plants in different positions.  
+
+![Alt Text](media/MovementGardener2.gif)  
   
-![Alt Text](media/MovementGardener1.gif)
+### Training:
+
+**Extrinsic rewards and curiosity:**  
+
+Trained for 30 minutes on CPU  
+about 1.1 M steps  
+Cumulative Reward (1.1M steps) 9.94  
+
+***With gail, extrinsic rewards and curiosity***  
+*Cumulative Reward (1.1M steps) 2.4  
+(Probably my demonstration data was not fitting.)*
 
 ## Next Steps:
-Train in variants of the environment.
+Plants can die and thus give the agent negative rewards again. 
 
 ## The Agent
 ### Goal: 
-Bring all plants to the maximum growth stage.
+Bring all plants to the maximum growth stage.  
+Agent only needs to collide with a plant to take care of it and does not need to perform any other actions.
 
 ### Prevent:
-Run into obstacles. Overgrooming plants.
+Run into obstacles. Overgrooming plants.  
+
+![image](media/RewardLogic.png)  
 
 ### Actions:
 **2 Continuos Actions**  
@@ -23,11 +38,14 @@ Resembles movement in the x and y directions.
 
 **Ray Perception Sensor (2D)**  
 Can detect Collider with the tags: border, plant, plantHappy  
-7 Rays  
-View direction of Agent (-Y)  
+8 Rays  
+In every direction agent can walk  
+(Perhaps I should extend the raycasts so that the agent has an overview of the entire environment. However, I didn't want to make it so easy for him yet.)  
+  
+![image](media/agent_ray.PNG)
 
-### Hyperparameters for brain 4
-Brain 4 is preconfigured in this Unity Project.  
+### Hyperparameters for brains
+Brain 6 is preconfigured in this Unity Project.  
 See config/configurationBrain4.yaml
 
 ## Assets:
