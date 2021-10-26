@@ -48,7 +48,6 @@ public class GardenerMoveAgent : Agent
         _agentCollider.enabled = false;
 
         OnRestart?.Invoke(true); // restarts plants over plantmanager and plantmanager
-        transform.localPosition = Vector3.zero;
 
         _agentCollider.enabled = true;
     }

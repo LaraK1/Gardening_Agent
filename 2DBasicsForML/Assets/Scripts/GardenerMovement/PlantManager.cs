@@ -13,18 +13,10 @@ public class PlantManager : MonoBehaviour
 
     [SerializeField] List<Plant> _plantsRemaining;
 
-    [SerializeField] GardenerMoveAgent agent;
+    //[SerializeField] GardenerMoveAgent agent;
     private void OnEnable() 
     {
-        foreach (var plant in _plants)
-        {
-            plant.OnIsHappy += OnHappy;
-            plant.OnTouchedForTheVeryFirstTime += OnFirstTouch;
-            plant.OnTouchedToMuch += OnTouchToMuch;
-            plant.OnGrow += OnGrowTouch;
-        }
-
-        agent.OnRestart += Restart;
+        //agent.OnRestart += Restart;
     }
 
     private void OnHappy(Plant plant)
@@ -52,11 +44,11 @@ public class PlantManager : MonoBehaviour
             BadTouch.Invoke();
     }
 
-    private void Restart(bool isRestart)
+    /*private void Restart(bool isRestart)
     {
         if(isRestart)
         {
-            /*
+            
             foreach (var plant in _plantsRemaining)
             {
 
@@ -72,7 +64,7 @@ public class PlantManager : MonoBehaviour
                 plant.OnIsHappy += OnHappy;
             }
 
-            */
+           
 
             _plantsRemaining = new List<Plant>(_plants);
             foreach (var plant in _plants)
@@ -80,6 +72,28 @@ public class PlantManager : MonoBehaviour
                 plant.Restart();
             }
         }
+    } */
+
+    public void Reset() 
+    {
+        foreach (var plant in _plants) // unsubscribe from current plants
+        {
+            plant.Restart();
+            Unsubscribe(plant);
+        }
+
+        // Get the new plants
+        _plants = new List<Plant>(GetComponentsInChildren<Plant>()
+                    .ToList());
+
+        foreach (var plant in _plants)
+        {
+           Subscribe(plant);
+        }
+
+        _plantsRemaining = new List<Plant>(_plants);
+
+        
     }    
     
     [ContextMenu("AutoFill Plants")]
@@ -89,5 +103,21 @@ public class PlantManager : MonoBehaviour
             .ToList();
 
         //.Where(t=> t.name.ToLower().Contains("red"))
+    }
+
+    private void Unsubscribe(Plant plant)
+    {
+        plant.OnIsHappy -= OnHappy;
+        plant.OnTouchedForTheVeryFirstTime -= OnFirstTouch;
+        plant.OnTouchedToMuch -= OnTouchToMuch;
+        plant.OnGrow -= OnGrowTouch;
+    }
+
+    private void Subscribe(Plant plant)
+    {
+        plant.OnIsHappy += OnHappy;
+        plant.OnTouchedForTheVeryFirstTime += OnFirstTouch;
+        plant.OnTouchedToMuch += OnTouchToMuch;
+        plant.OnGrow += OnGrowTouch;
     }
 }
