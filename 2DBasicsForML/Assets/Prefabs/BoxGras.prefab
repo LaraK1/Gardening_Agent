@@ -13,14 +13,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3068397297241632886, guid: 1bdc59d6ec490044ba6b6541f3c2e48f, type: 3}
       propertyPath: _plantSprites.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3068397297241632886, guid: 1bdc59d6ec490044ba6b6541f3c2e48f, type: 3}
       propertyPath: _plantSprites.Array.data[1]
       value: 
-      objectReference: {fileID: 8101502785046417057, guid: d3bc2fbcd54a6eb469a13167b6ea9bc6, type: 3}
+      objectReference: {fileID: -2802166444471668193, guid: d3bc2fbcd54a6eb469a13167b6ea9bc6, type: 3}
     - target: {fileID: 3068397297241632886, guid: 1bdc59d6ec490044ba6b6541f3c2e48f, type: 3}
       propertyPath: _plantSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 8101502785046417057, guid: d3bc2fbcd54a6eb469a13167b6ea9bc6, type: 3}
+    - target: {fileID: 3068397297241632886, guid: 1bdc59d6ec490044ba6b6541f3c2e48f, type: 3}
+      propertyPath: _plantSprites.Array.data[3]
       value: 
       objectReference: {fileID: 9185452976332323767, guid: d3bc2fbcd54a6eb469a13167b6ea9bc6, type: 3}
     - target: {fileID: 5903196690474160286, guid: 1bdc59d6ec490044ba6b6541f3c2e48f, type: 3}
